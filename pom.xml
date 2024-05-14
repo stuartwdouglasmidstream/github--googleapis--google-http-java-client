@@ -1,42 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.google.cloud</groupId>
+    <artifactId>native-image-shared-config</artifactId>
+    <version>1.7.1</version>
+  </parent>
   <groupId>com.google.http-client</groupId>
   <artifactId>google-http-client-parent</artifactId>
-  <version>1.44.1</version><!-- {x-version-update:google-http-client-parent:current} -->
+  <version>1.44.1</version>
   <packaging>pom</packaging>
   <name>Parent for the Google HTTP Client Library for Java</name>
   <description>Google HTTP Client Library for Java</description>
-
   <url>https://github.com/googleapis/google-http-java-client</url>
-
-  <issueManagement>
-    <system>GitHub</system>
-    <url>https://github.com/googleapis/google-http-java-client/issues</url>
-  </issueManagement>
-
   <inceptionYear>2011</inceptionYear>
-
-  <scm>
-    <connection>scm:git:https://github.com/googleapis/google-http-java-client.git</connection>
-    <developerConnection>scm:git:git@github.com:googleapis/google-http-java-client.git</developerConnection>
-    <url>https://github.com/googleapis/google-http-java-client</url>
-  </scm>
-
   <organization>
     <name>Google</name>
     <url>https://www.google.com/</url>
   </organization>
-
-  <developers>
-    <developer>
-      <id>chingor</id>
-      <name>Jeff Ching</name>
-      <email>chingor@google.com</email>
-    </developer>
-  </developers>
-
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -44,18 +26,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <!--
-    If you add a new module, make sure to also add it in the following places:
-    * below in the dependencyManagement and maven-javadoc-plugin sections
-    * google-http-client-assembly/classpath-include
-    * google-http-client-assembly/pom.xml
-    * google-http-client-assembly/readme.html
-    * google-http-client-assembly/dependencies/<name>-dependencies.html
-        (use mvn project-info-reports:dependencies and copy from
-        google-http-client-<name>/target/site/dependencies.html)
-    * google-http-client-assembly/android-properties/*.properties
-  -->
+  <developers>
+    <developer>
+      <id>chingor</id>
+      <name>Jeff Ching</name>
+      <email>chingor@google.com</email>
+    </developer>
+  </developers>
   <modules>
     <module>google-http-client</module>
     <module>google-http-client-assembly</module>
@@ -66,40 +43,37 @@
     <module>google-http-client-gson</module>
     <module>google-http-client-jackson2</module>
     <module>google-http-client-xml</module>
-
     <module>google-http-client-findbugs</module>
     <module>google-http-client-test</module>
     <module>samples/dailymotion-simple-cmdline-sample</module>
-
-    <!-- A deployable artifact must be last or deploys are skipped -->
     <module>google-http-client-bom</module>
   </modules>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>Central Repository</name>
-      <url>https://repo.maven.apache.org/maven2</url>
-    </pluginRepository>
-  </pluginRepositories>
-
-  <parent>
-    <groupId>com.google.cloud</groupId>
-    <artifactId>native-image-shared-config</artifactId>
-    <version>1.7.1</version>
-  </parent>
-
-  <!--
-    If you change the version of a dependency, make sure to update the javadoc
-    links if required, and any javadoc links of your dependency in the oauth and
-    api projects as well.
-  -->
+  <scm>
+    <connection>scm:git:https://github.com/googleapis/google-http-java-client.git</connection>
+    <developerConnection>scm:git:git@github.com:googleapis/google-http-java-client.git</developerConnection>
+    <url>https://github.com/googleapis/google-http-java-client</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/googleapis/google-http-java-client/issues</url>
+  </issueManagement>
+  <properties>
+    <project.surefire.version>3.0.0-M7</project.surefire.version>
+    <project.http-client.version>1.44.1</project.http-client.version>
+    <project.guava.version>30.1.1-android</project.guava.version>
+    <project.httpclient.version>4.5.14</project.httpclient.version>
+    <project.xpp3.version>1.1.4c</project.xpp3.version>
+    <project.appengine.version>2.0.24</project.appengine.version>
+    <deploy.autorelease>false</deploy.autorelease>
+    <project.httpcore.version>4.4.16</project.httpcore.version>
+    <project.jackson-core2.version>2.14.2</project.jackson-core2.version>
+    <project.root-directory>..</project.root-directory>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.jsr305.version>3.0.2</project.jsr305.version>
+    <project.protobuf-java.version>3.21.12</project.protobuf-java.version>
+    <project.gson.version>2.10.1</project.gson.version>
+    <project.opencensus.version>0.31.1</project.opencensus.version>
+  </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -265,22 +239,22 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
   <build>
-    <!-- This is the parent, so only define pluginManagement, not plugins. -->
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.6.13</version>
-          <extensions>true</extensions>
-          <configuration>
-            <serverId>ossrh</serverId>
-            <nexusUrl>https://google.oss.sonatype.org/</nexusUrl>
-            <autoReleaseAfterClose>${deploy.autorelease}</autoReleaseAfterClose>
-          </configuration>
-        </plugin>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>3.5.0</version>
@@ -298,7 +272,6 @@
           <version>3.0.0</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>3.2.1</version>
           <executions>
@@ -311,7 +284,6 @@
           </executions>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>3.5.0</version>
           <executions>
@@ -324,7 +296,6 @@
           </executions>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.3.0</version>
           <executions>
@@ -344,14 +315,8 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>3.3.0</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>findbugs-maven-plugin</artifactId>
-          <version>3.0.5</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -364,32 +329,26 @@
           <version>1.22</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.4.5</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.12.1</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>3.6.0</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.3.0</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>3.4.1</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>3.3.0</version>
           <executions>
@@ -405,41 +364,37 @@
     </pluginManagement>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.4.1</version><executions>
-        <execution>
-          <id>enforce-maven</id>
-          <goals>
-            <goal>enforce</goal>
-          </goals>
-          <configuration>
-            <rules>
-              <requireMavenVersion>
-                <version>[3.5.2,4.0.0)</version>
-              </requireMavenVersion>
-              <requireJavaVersion>
-                <version>[1.7,)</version>
-              </requireJavaVersion>
-              <requireUpperBoundDeps/>
-            </rules>
-          </configuration>
-        </execution>
-      </executions>
+        <version>3.4.1</version>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>[3.5.2,4.0.0)</version>
+                </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>[1.7,)</version>
+                </requireJavaVersion>
+                <requireUpperBoundDeps />
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <doclint>none</doclint>
-          <source>7</source>
-        </configuration>
         <executions>
           <execution>
             <id>aggregate</id>
+            <phase>site</phase>
             <goals>
               <goal>aggregate</goal>
             </goals>
-            <phase>site</phase>
             <configuration>
               <links>
                 <link>https://download.oracle.com/javase/7/docs/api/</link>
@@ -484,28 +439,14 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
         <configuration>
-          <excludeFilterFile>${basedir}/../findbugs-exclude.xml</excludeFilterFile>
-          <plugins>
-            <plugin>
-              <groupId>com.google.http-client</groupId>
-              <artifactId>google-http-client-findbugs</artifactId>
-              <version>${project.http-client.version}</version>
-            </plugin>
-          </plugins>
+          <doclint>none</doclint>
+          <source>7</source>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>clirr-maven-plugin</artifactId>
-        <configuration>
-          <ignoredDifferencesFile>clirr-ignored-differences.xml</ignoredDifferencesFile>
-          <logResults>true</logResults>
-        </configuration>
         <executions>
           <execution>
             <goals>
@@ -513,6 +454,10 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <ignoredDifferencesFile>clirr-ignored-differences.xml</ignoredDifferencesFile>
+          <logResults>true</logResults>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -546,31 +491,22 @@
           </execution>
         </executions>
       </plugin>
-      <!-- Build the dependencies report at package time (needed for the assembly artifact). -->
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.4.5</version>
         <executions>
           <execution>
+            <phase>package</phase>
             <goals>
               <goal>dependencies</goal>
             </goals>
-            <phase>package</phase>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>com.coveo</groupId>
         <artifactId>fmt-maven-plugin</artifactId>
         <version>2.9</version>
-        <configuration>
-          <style>google</style>
-          <verbose>true</verbose>
-        </configuration>
         <dependencies>
           <dependency>
             <groupId>com.google.googlejavaformat</groupId>
@@ -578,48 +514,22 @@
             <version>1.7</version>
           </dependency>
         </dependencies>
+        <configuration>
+          <style>google</style>
+          <verbose>true</verbose>
+        </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <properties>
-    <!--
-      NOTE: if you make a change to these versions, you MUST make the same change to:
-      - google-http-client-assembly/android-properties (make the filenames match the version here)
-      - google-oauth-java-client/pom.xml (versions must match)
-      - google-oauth-java-client/google-oauth-client-assembly/android-properties (make the filenames match the version here)
-      - google-api-java-client/pom.xml (versions must match)
-      - google-api-java-client/google-api-client-assembly/android-properties (make the filenames match the version here)
-      - Internally, update the default features.json file
-    -->
-    <project.http-client.version>1.44.1</project.http-client.version><!-- {x-version-update:google-http-client-parent:current} -->
-    <project.appengine.version>2.0.24</project.appengine.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.jsr305.version>3.0.2</project.jsr305.version>
-    <project.gson.version>2.10.1</project.gson.version>
-    <project.jackson-core2.version>2.14.2</project.jackson-core2.version>
-    <project.protobuf-java.version>3.21.12</project.protobuf-java.version>
-    <project.guava.version>30.1.1-android</project.guava.version>
-    <project.xpp3.version>1.1.4c</project.xpp3.version>
-    <project.httpclient.version>4.5.14</project.httpclient.version>
-    <project.httpcore.version>4.4.16</project.httpcore.version>
-    <project.opencensus.version>0.31.1</project.opencensus.version>
-    <project.root-directory>..</project.root-directory>
-    <project.surefire.version>3.0.0-M7</project.surefire.version>
-    <deploy.autorelease>false</deploy.autorelease>
-  </properties>
-
   <profiles>
     <profile>
       <id>native-tests</id>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>${surefire.version}</version>
             <configuration>
-              <!-- Include all tests during native image testing. -->
               <includes combine.self="override">
                 <include>**/*Test</include>
               </includes>
@@ -638,7 +548,6 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
             <configuration>
               <skip>true</skip>
@@ -647,7 +556,6 @@
         </plugins>
       </build>
     </profile>
-
     <profile>
       <id>release-sign-artifacts</id>
       <activation>
@@ -659,7 +567,6 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>3.0.1</version>
             <executions>
@@ -681,8 +588,6 @@
         </plugins>
       </build>
     </profile>
-
-    <!-- set project.root-directory property based on where we are -->
     <profile>
       <id>root-directory</id>
       <activation>
@@ -694,9 +599,7 @@
         <project.root-directory>.</project.root-directory>
       </properties>
     </profile>
-
     <profile>
-      <!-- Only run checkstyle plugin on Java 8+ (checkstyle artifact only supports Java 8+) -->
       <id>checkstyle-tests</id>
       <activation>
         <jdk>[1.8,)</jdk>
@@ -704,8 +607,14 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
             <dependencies>
               <dependency>
                 <groupId>com.puppycrawl.tools</groupId>
@@ -718,53 +627,30 @@
               <consoleOutput>true</consoleOutput>
               <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
             </configuration>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>check</goal>
-                </goals>
-              </execution>
-            </executions>
           </plugin>
         </plugins>
       </build>
     </profile>
-
     <profile>
       <id>docFX</id>
       <activation>
         <property>
-          <!-- Activate with -P docFX -->
           <name>docFX</name>
         </property>
       </activation>
-      <properties>
-        <!-- default config values -->
-        <docletName>java-docfx-doclet-1.9.0</docletName>
-        <outputpath>${project.build.directory}/docfx-yml</outputpath>
-        <projectname>${project.artifactId}</projectname>
-        <excludeclasses></excludeclasses>
-        <excludePackages>com\.google\.api\.client\.findbugs:com\.google\.api\.client\.test:com\.google\.api\.services</excludePackages>
-        <source>8</source>            
-        <sourceFileExclude></sourceFileExclude>
-      </properties>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
             <version>3.5.0</version>
             <configuration>
               <doclet>com.microsoft.doclet.DocFxDoclet</doclet>
               <useStandardDocletOptions>false</useStandardDocletOptions>
-               <!-- custom config with -Dproperty=value -->
               <docletPath>${env.KOKORO_GFILE_DIR}/${docletName}.jar</docletPath>
-              <additionalOptions>
-                -outputpath ${outputpath} 
+              <additionalOptions>-outputpath ${outputpath} 
                 -projectname ${projectname} 
                 -excludeclasses ${excludeclasses}: 
-                -excludepackages ${excludePackages}:
-              </additionalOptions>
+                -excludepackages ${excludePackages}:</additionalOptions>
               <doclint>none</doclint>
               <show>protected</show>
               <nohelp>true</nohelp>
@@ -773,9 +659,18 @@
                 <exclude>${sourceFileExclude}</exclude>
               </sourceFileExcludes>
             </configuration>
-          </plugin>  
+          </plugin>
         </plugins>
       </build>
-    </profile>    
+      <properties>
+        <excludeclasses></excludeclasses>
+        <excludePackages>com\.google\.api\.client\.findbugs:com\.google\.api\.client\.test:com\.google\.api\.services</excludePackages>
+        <sourceFileExclude></sourceFileExclude>
+        <projectname>${project.artifactId}</projectname>
+        <outputpath>${project.build.directory}/docfx-yml</outputpath>
+        <source>8</source>
+        <docletName>java-docfx-doclet-1.9.0</docletName>
+      </properties>
+    </profile>
   </profiles>
 </project>
